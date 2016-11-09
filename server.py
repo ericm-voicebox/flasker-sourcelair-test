@@ -1,12 +1,13 @@
 import os
 import glob
+import socket
 
 from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello Heroku!'
+    return 'Hello from {}!'.format(socket.gethostname())
 
 @app.route('/files')
 def get_files():
